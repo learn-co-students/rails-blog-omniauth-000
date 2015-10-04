@@ -1,6 +1,10 @@
 RailsBlog::Application.routes.draw do
 
   root 'posts#index'
+
+  get '/login' => 'sessions#new'
+  get '/auth/github/callback' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   
   resources :sessions
   resources :users, :only => [:new, :show, :index]
