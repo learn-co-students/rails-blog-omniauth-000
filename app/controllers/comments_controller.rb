@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :current_user, only: [:new, :edit, :create, :update, :destroy]
 
   def new
     @comment = Comment.new

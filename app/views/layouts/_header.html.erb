@@ -1,0 +1,9 @@
+<div>
+  <%= link_to 'Home', root_path %>
+  <% if !!session["user_id"] %>
+    Hi, <%= User.find(session["user_id"]).name %>!
+    <%= link_to "Log Out", logout_path %>
+  <% else %>
+    <%= link_to "Log In with Github", "/auth/:provider" %>
+  <% end %>
+</div> 
