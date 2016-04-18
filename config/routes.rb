@@ -10,4 +10,9 @@ RailsBlog::Application.routes.draw do
     resources :comments, :only => [:new, :create]
   end
 
+  get "auth/:provider/callback", to: "sessions#create"
+
+  delete '/signout', to: "sessions#destroy", as: "signout"
+
+
 end
